@@ -1,11 +1,11 @@
-# require 'rails'
+require 'kaminari'
 
 class AjaxDatatablesRails
-  
+
   class MethodError < StandardError; end
 
   VERSION = '0.0.10'
-    
+
   attr_reader :columns, :model_name, :searchable_columns, :filters_parameter
 
   def initialize(view)
