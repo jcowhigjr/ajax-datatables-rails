@@ -40,11 +40,11 @@ private
   end
 
   def filtered_record_count
-    search_records(filter_records(get_raw_records)).count
+    search_records(get_raw_records).count
   end
 
   def fetch_records
-    search_records(filter_records(sort_records(paginate_records(get_raw_records))))
+    search_records(sort_records(paginate_records(get_raw_records)))
   end
 
   def paginate_records(records)
@@ -64,15 +64,6 @@ private
   def sort_records(records)
     if sort_column
       records.order(sort_column.to_s => sort_direction)
-    else
-      records
-    end
-  end
-
-  def filter_records(records, filters = nil)
-    filters ||= @filters_parameter ? @view.request.filtered_parameters[@filters_parameter.to_s] : nil
-    if @model_name.respond_to? :filter_criteria
-      records.where(@model_name.filter_criteria(filters))
     else
       records
     end
