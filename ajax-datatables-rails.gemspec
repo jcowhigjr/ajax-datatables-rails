@@ -15,9 +15,7 @@ Gem::Specification.new do |gem|
   gem.name          = "ajax-datatables-rails"
   gem.require_paths = ["lib"]
   gem.version       = AjaxDatatablesRails::VERSION
-  
-  gem.add_development_dependency "rspec"
-  gem.add_runtime_dependency "mongoid"
-  gem.add_runtime_dependency "activesupport"
-end
 
+  gem.add_development_dependency "rspec"
+  gem.add_runtime_dependency "kaminari"
+end
