@@ -19,7 +19,7 @@ class AjaxDatatablesRails
   def as_json(options = {})
     {
       sEcho: params[:sEcho].to_i,
-      iTotalRecords: @model_name.count,
+      iTotalRecords: raw_record_count,
       iTotalDisplayRecords: filtered_record_count,
       aaData: data
     }
@@ -35,8 +35,8 @@ private
     raise MethodError, "The method `get_raw_records' is not defined."
   end
 
-  def get_raw_record_count
-    search_records(get_raw_records).count
+  def raw_record_count
+    get_raw_records.count
   end
 
   def filtered_record_count
