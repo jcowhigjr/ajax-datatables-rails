@@ -62,7 +62,11 @@ private
   end
 
   def sort_records(records)
-    records.order_by(sort_column.to_s => sort_direction)
+    if sort_column
+      records.order(sort_column.to_s => sort_direction)
+    else
+      records
+    end
   end
 
   def filter_records(records, filters = nil)
@@ -87,7 +91,7 @@ private
   end
 
   def sort_direction
-    params[:sSortDir_0] == "desc" ? 1 : -1
+    params[:sSortDir_0] == "desc" ? :desc : :asc
   end
 
 end
