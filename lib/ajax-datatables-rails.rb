@@ -6,7 +6,7 @@ class AjaxDatatablesRails
 
   VERSION = '0.0.10'
 
-  attr_reader :columns, :model_name, :searchable_columns, :filters_parameter
+  attr_reader :columns, :searchable_columns
 
   def initialize(view)
     @view = view
